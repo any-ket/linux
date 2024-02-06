@@ -2677,6 +2677,10 @@ void tcp_cwnd_reduction(struct sock *sk, int newly_acked_sacked, int newly_lost,
 	} else {
 		sndcnt = max_t(int, tp->prr_delivered - tp->prr_out,
 			       newly_acked_sacked);
+
+		if(READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_prr_crb_enabled))
+			sndcnt = tp->prr_delivered - tp->prr_out;
+
 		if (flag & FLAG_SND_UNA_ADVANCED && !newly_lost)
 			sndcnt++;
 		sndcnt = min(delta, sndcnt);

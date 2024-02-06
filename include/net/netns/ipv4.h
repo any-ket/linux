@@ -209,6 +209,7 @@ struct netns_ipv4 {
 	u8 sysctl_tcp_plb_rehash_rounds;
 	u8 sysctl_tcp_plb_suspend_rto_sec;
 	int sysctl_tcp_plb_cong_thresh;
+	u8 sysctl_tcp_prr_crb_enabled;
 
 	int sysctl_udp_wmem_min;
 	int sysctl_udp_rmem_min;

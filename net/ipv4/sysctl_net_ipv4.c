@@ -1502,6 +1502,13 @@ static struct ctl_table ipv4_net_table[] = {
 		.proc_handler	= proc_dou8vec_minmax,
 		.extra1		= SYSCTL_ONE,
 	},
+	{
+		.procname	= "tcp_prr_crb_enabled",
+		.data		= &init_net.ipv4.sysctl_tcp_prr_crb_enabled,
+		.maxlen		= sizeof(u8),
+		.mode		= 0644,
+		.proc_handler	= proc_dou8vec_minmax,
+	},
 	{ }
 };
 
